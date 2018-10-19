@@ -1,11 +1,11 @@
 const url = {
 	development: {
 		targetUrl: 'http://customer.dev-zt.bnq.com.cn',
-		apiUrl: 'http://localhost:8089',
+		apiUrl: 'http://localhost:8088',
 		apiUrlFilter: '/customerAdmin',
 		authUrl: 'http://auth.dev-zt.bnq.com.cn',
 		authUrlFilter: '/auth',
-		port: 8089,
+		port: 8088,
 		autoOpenBrowser: true, 
 		proxyFilter: '/customerAdmin',
         addressUrl:'http://customer.dev-zt.bnq.com.cn/areas/district',

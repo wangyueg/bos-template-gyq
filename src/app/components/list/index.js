@@ -16,8 +16,8 @@ class CommonList extends Component {
 		this._handleReset = this._handleReset.bind(this);
 		this._onChangePage = this._onChangePage.bind(this);
 		this._isDatepicker = this._isDatepicker.bind(this);
-		this.curPage = Util.getUrlArg('curPage') || 1;
-		this.pageSize = Util.getUrlArg('pageSize') || 10;
+		this.curPage = Util.getUrlArg('curPage', true) || 1;
+		this.pageSize = Util.getUrlArg('pageSize', true) || 10;
 
 		this.state = {
 			curPage: this.curPage,
@@ -124,7 +124,6 @@ class CommonList extends Component {
 				}
 				<div className="listBtns">
 					{!isHideNewBtn && <Link to="./new"><Button type="primary">新增</Button></Link>}
-					{this.props.isShowExport && <a href={this.props.exportUrl} onMouseDown={this.props.clickExport}><Button type="primary">导出</Button></a>}
 				</div>
 				<Table
 					columns={this.props.columns}

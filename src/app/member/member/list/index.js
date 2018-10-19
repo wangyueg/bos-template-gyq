@@ -17,11 +17,9 @@ class Member extends Component {
 
 		this._getMemberList = this._getMemberList.bind(this);
 		this._getMemberSelect = this._getMemberSelect.bind(this);
-		this._clickExport = this._clickExport.bind(this);
 
 		this.state = {
-			searchParams: {},
-			exportExcel: 'javascript:void(0);'
+			searchParams: {}
 		}
 	}
 
@@ -40,7 +38,7 @@ class Member extends Component {
 			status: nextProps.MemberList.memberListStatus,
 			code: nextProps.MemberList.memberListCode,
 			message: nextProps.MemberList.memberListMessage,
-			params: this.state.searchParams,
+			params: nextState.searchParams,
 			updateStatus: nextProps.updateMemberListStatus
 		});
 
@@ -128,30 +126,6 @@ class Member extends Component {
 	    });
 	}
 
-	_clickExport() {
-		let searchParams = this.state.searchParams;
-		if(searchParams && searchParams.registerTimeStart && searchParams.registerTimeEnd) {
-			let start = new Date(searchParams.registerTimeStart.replace(/-/g, '/'));
-			let end = new Date(searchParams.registerTimeEnd.replace(/-/g, '/'));
-			let dataDifferent = end.getTime() - start.getTime(); //时间差
-			if(dataDifferent <= 31*24*60*60*1000) {
-				const ENV = Util.getENV();
-				let exportExcel = Util.createUrl({
-					url: window.location.origin + `${config[ENV].apiUrlFilter}/customer/exportCustomer`,
-					param: this.state.searchParams,
-					isExport: true
-				});
-				this.setState({exportExcel});
-			}else {
-				Toast.show('注册时间范围最大值为31天')
-				this.setState({exportExcel: 'javascript:void(0);'})
-			}
-		}else {
-			Toast.show('请选择注册时间范围');
-			return false;
-		}		
-	}
-
 	render() {
 		let tableDataSource = this.props.MemberList && this.props.MemberList.memberListData;
 		let pagination = this.props.MemberList && this.props.MemberList.memberListPage;
@@ -167,9 +141,6 @@ class Member extends Component {
 					tableLoading={this.props.Fetch.spinning}
 					pagination={pagination}
 					handleChange={this.props.cascaderHandleChange}
-					isShowExport={true}
-					exportUrl={this.state.exportExcel}
-					clickExport={this._clickExport}
 				/>
 			</div>
 		);

@@ -35,14 +35,16 @@ module.exports = {
 		        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 		        loader: 'url-loader',
 		        query: {
-		        	name: 'img/[name].[hash:16].[ext]'
+		        	limit: 10000,
+		        	name: 'img/[name].[hash:16].[ext]',
+		        	publicPath:'/'
 		        }
 		    }
 		]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: '商品中心',
+			title: '百安居后台管理模板',
 			inject: false,
 			template: 'index.template.html'
 		}),

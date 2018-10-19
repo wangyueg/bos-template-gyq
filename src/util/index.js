@@ -11,7 +11,7 @@ const createUrl = (request) => {
   if (param) {
     url = !url.includes('?') && url + '?';
     for (let key of Object.keys(param)) {
-      url = url + key + '=' + param[key] + '&';
+      url = url + key + '=' + encodeURI(param[key]) + '&';
     }
     if (url.endsWith('&')) {
       url = url.substring(0, url.length - 1);
@@ -20,9 +20,14 @@ const createUrl = (request) => {
   return url;
 };
 
-const getUrlArg = (name) => {
+const getUrlArg = (name, isSearchFromCookies) => {
+  let search = window.location.search;
+  //IE9时，search的值从cookie中获取
+  if(isSearchFromCookies) {
+    search = unescape(getCookie('CURRENT_SEARCH'));
+  }
   let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-  let arg = window.location.search.substr(1).match(reg);
+  let arg = search.substr(1).match(reg);
   return arg ? arg[2] : '';
 };
 
@@ -123,7 +128,18 @@ const fetchCallback = (argus) => {
           url: window.location.origin + window.location.pathname,
           param: params        
         });
-        window.history.replaceState({}, 0, url);
+        //IE9中history对象不支持replaceState，IE9中不支持HTML5模式
+        if(window.history.replaceState) {
+          window.history.replaceState({}, 0, url);
+        }else {
+          //当IE9中使用cookie保存当前URL
+          let search = createUrl({
+            url: '',
+            param: params        
+          });
+          setCookie('CURRENT_SEARCH', search);
+        }  
+        
       }
 
       successCallback && successCallback();
@@ -144,6 +160,13 @@ const getCookie = (cookieName) => {
   }  
   return decodeURI(cookieValue);
 };
+
+const setCookie = (name, value) => {
+  let days = 30;
+  let exp = new Date();
+  exp.setTime(exp.getTime() + days*24*60*60*1000);
+  document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()
+}
 
 export {
   createUrl,

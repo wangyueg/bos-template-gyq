@@ -173,6 +173,7 @@ class Home extends Component {
 					trigger= {null}
 					collapsible
 					collapsed= {this.state.collapsed}
+					className="ant-layout-sider-ie9"
 				>
 					<div className="logoContainer" style={{overflow:'hidden'}}>
 						<Link to="/"><img src={logoImage} alt="商品中心" className="logo" /></Link>
@@ -188,7 +189,7 @@ class Home extends Component {
 						{this._getMenus(menus)}
 					</Menu>
 				</Sider>
-				<Layout>
+				<Layout className="ant-layout-ie9">
 					<Header className="header">
 						<Icon
 			              	className="trigger"
@@ -202,7 +203,7 @@ class Home extends Component {
 			            	</div>
 			            	{this.state.isShowUserOption &&
 			            		<div className="userOption">
-									{/*<button className="logout" onClick={this._resetPassword}>重置密码</button>*/}
+									<button className="logout" onClick={this._resetPassword}>重置密码</button>
 			            			<button className="logout" onClick={this._logout}>退出</button>
 			            		</div>
 			            	}
