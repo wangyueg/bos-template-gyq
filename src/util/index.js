@@ -22,8 +22,8 @@ const createUrl = (request) => {
 
 const getUrlArg = (name, isSearchFromCookies) => {
   let search = window.location.search;
-  //IE9时，search的值从cookie中获取
-  if(isSearchFromCookies) {
+  //IE9(通过window.history.replaceState来判断IE9和其他浏览器，不考虑IE8及以下浏览器)时，search的值从cookie中获取
+  if(isSearchFromCookies && !window.history.replaceState) {
     search = unescape(getCookie('CURRENT_SEARCH'));
   }
   let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
