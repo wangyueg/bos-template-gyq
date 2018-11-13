@@ -17,7 +17,7 @@ const url = {
 		authUrl: 'http://auth.dev-zt.bnq.com.cn',
 		authUrlFilter: '/auth'
 	},
-	uat: {
+	test: {
 		apiUrl: 'http://customer.dev-zt.bnq.com.cn',
 		apiUrlFilter: '/customerAdmin',
 		addressUrl:'http://customer.dev-zt.bnq.com.cn/areas/district',

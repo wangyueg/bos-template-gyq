@@ -38,7 +38,7 @@ let webpackUatConfig = merge(webpackBaseConfig, {
 	plugins: [
 		new webpack.DefinePlugin({
 	      'process.env.NODE_ENV': JSON.stringify('production'),
-	      'process.env.CURRENT_ENV': JSON.stringify('uat')
+	      'process.env.CURRENT_ENV': JSON.stringify('test')
 	    }),
 		//提取css至独立文件
 		new ExtractTextWebpackPlugin({
