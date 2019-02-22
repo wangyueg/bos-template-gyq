@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.test.config.js",
     "start": "node ./build/dev-server.js",
     "dev": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prodDev.config.js",
-    "test": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.test.config.js",
     "prod": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prod.config.js"
   },
   "author": "wangyuegyq",
@@ -38,7 +37,7 @@
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.8.2",
-    "webpack-cli": "^2.1.4",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-hot-middleware": "^2.22.2",
