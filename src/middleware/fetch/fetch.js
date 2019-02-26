@@ -26,6 +26,14 @@ export default (args) => {
   }else if(params){
     params = JSON.stringify({...params})
   }
+
+  //添加window.location.protocol
+  if(requestUrl.indexOf('http') === -1) {
+    requestUrl = window.location.protocol + '//' + requestUrl;
+  }else if(requestUrl.indexOf('http') > -1) {
+    requestUrl = requestUrl.replace(/^http(s?):/, window.location.protocol);
+  }
+  
   return fetch(requestUrl, {
     credentials: 'include', // 请求带上cookies，是每次请求保持会话一直
     method: args.type.toUpperCase(),
