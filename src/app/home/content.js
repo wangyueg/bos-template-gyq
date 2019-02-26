@@ -3,6 +3,7 @@ import {Redirect, Route, Switch} from 'react-router-dom';
 import {Layout} from 'antd';
 import MemberList from '../member/member/list/index';
 import MemberDetail from '../member/member/detail/index';
+import Welcome from '../welcome/index';
 
 const {Content} = Layout;
 
@@ -12,8 +13,9 @@ let Contents = ({style}) => {
       <Switch>
         <Route path="/member/member/list" component={MemberList}/>
         <Route path="/member/member/detail" component={MemberDetail}/>
+        <Route path="/welcome" component={Welcome}/>
 
-        <Redirect to='/member/member/list'/>
+        <Redirect to='/welcome'/>
       </Switch>
     </Content>
   );
