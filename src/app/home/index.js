@@ -30,7 +30,7 @@ class Home extends Component {
 
 		this.state = {
 			collapsed: false, //当前侧边栏收起状态
-			openKeys: this._getOpenKes() || ['member', 'member'], //当前展开的SubMenu菜单项key数组
+			openKeys: this._getOpenKes() || ['welcome'], //当前展开的SubMenu菜单项key数组
 			rootSubmenuKeys: this._getRootSubmenKeys(menus) || [],
 			isShowUserOption: false,
 			isShowResetPasswrod: false
@@ -164,6 +164,12 @@ class Home extends Component {
         	onOpenChange: this._onOpenChange
 		} : {}
 
+		let contentPadding = 15, contentMargin = 12;
+		if(window.location.pathname && ['/welcome', '/permission'].indexOf(window.location.pathname) > -1) {
+			contentPadding = 0;
+			contentMargin = 0;
+		}
+
 		//获取用户名
 		let username = Util.getCookie('fullName');
 
@@ -217,7 +223,7 @@ class Home extends Component {
 			            </div>
 					</Header>
 					<Layout style={{background:'#eee'}}>
-						<Contents style={{background:'#fff',padding:15,margin:12}} />
+						<Contents style={{background:'#fff',padding:contentPadding,margin:contentMargin, minHeight:"auto", position:"relative"}} />
 					</Layout>
 				</Layout>
 			</Layout>	

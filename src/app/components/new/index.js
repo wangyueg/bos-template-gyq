@@ -118,7 +118,7 @@ export default class New extends Component {
         return (
           <div key={i} style={{display: 'none'}}></div>
         );
-      } else if (option.type === 'cascaderCommon') {
+      } else if (option.type === 'cascader') {
         return (//将父组件的form传递给子组件，共用一个form控件
           <Cascader
             data={option.linkage}

@@ -77,6 +77,15 @@ const getAuthUrl = () => {
   let apiUrl = __URL__[ENV]['apiUrl'];
   return authUrl + '?originUrl=' + apiUrl;
 }
+
+//获取登录地址
+const getLoginUrl = () => {
+  let currentUrl = location.href
+  const ENV = process.env.CURRENT_ENV
+  let loginUrl = __URL__[ENV]['loginAddress']
+  return loginUrl + '?originUrl=' + currentUrl
+}
+
 /*
  *argus: object，里面包含参数
  *status
@@ -84,6 +93,8 @@ const getAuthUrl = () => {
  *message
  *params: 当前列表搜索的参数值，fetch成功之后，无刷新更改浏览器URL
  *isShowDialog: 控制当code不等于-1、0的时候，是否显示Dialog，还是Toast
+ *isShowPermissionPage: 当调用接口时，如果后台返回-2(即该用户没有权限)，如果没有设置isShowPermissionPage，
+ **默认会以一种弹框形式显示，一段时间后消失，当设置为true时，会跳转到该用户没有权限页面
 */
 const fetchCallback = (argus) => {
   const { status, code, message, params, updateStatus, successCallback, isShowToastSuccess, successText, isShowDialog } = argus;
@@ -105,6 +116,8 @@ const fetchCallback = (argus) => {
         Toast.show('网络异常');
       }else if(code == -1) {
         window.location.href = getAuthUrl();
+      }else if(code == -2 && isShowPermissionPage) {
+        window.location.href = '/permission';
       }else {
         !isShowDialog ? Toast.show(message) : Dialog.open({
           message: message,
@@ -176,5 +189,6 @@ export {
   setInitialValue,
   fetchCallback,
   getCookie,
-  getAuthUrl
+  getAuthUrl,
+  getLoginUrl
 }
