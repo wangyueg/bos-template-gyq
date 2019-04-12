@@ -133,7 +133,7 @@ class Home extends Component {
 			isShowToastSuccess: true,
 		    successText: '退出成功',
 		    successCallback: () => {
-		        window.location.href = Util.getAuthUrl();
+		        window.location.href = Util.getLoginUrl();
 		    }
 		});
 

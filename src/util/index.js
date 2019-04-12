@@ -115,7 +115,7 @@ const fetchCallback = (argus) => {
       }else if(code >= 300) {
         Toast.show('网络异常');
       }else if(code == -1) {
-        window.location.href = getAuthUrl();
+        window.location.href = getLoginUrl();
       }else if(code == -2 && isShowPermissionPage) {
         window.location.href = '/permission';
       }else {
