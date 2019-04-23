@@ -1,13 +1,15 @@
 {
-  "name": "react-wms",
+  "name": "bos-template-gyq",
   "version": "1.0.0",
-  "description": "",
+  "description": "An out-of-box UI solution for enterprise applications as a React boilerplate.",
   "main": "index.js",
   "scripts": {
     "test": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.test.config.js",
     "start": "node ./build/dev-server.js",
     "dev": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prodDev.config.js",
-    "prod": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prod.config.js"
+    "prod": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prod.config.js",
+    "build-compontes": "babel ./src/app/components -d components",
+    "css": "gulp less"
   },
   "author": "wangyuegyq",
   "license": "ISC",
@@ -24,6 +26,10 @@
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
+    "gulp": "^4.0.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^4.0.1",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.18.0",
     "less": "^2.7.2",
