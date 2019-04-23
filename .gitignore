@@ -7,3 +7,16 @@ public/index.html
 .idea
 yarn-error.log
 package-lock.json
+css/
+components/
+
+/*
+bulid/
+config/
+public/
+src/
+.babelrc
+.gitignore
+gulpfile.js
+index.template.html
+*/

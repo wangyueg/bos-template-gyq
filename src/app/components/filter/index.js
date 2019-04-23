@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Form, Row, Col, Input, Button, Icon, Select, DatePicker} from 'antd';
 import Cascader from '../cascader/index';
-import './index.less';
+// import './index.less';
 
 const FormItem = Form.Item;
 const Option = Select.Option;

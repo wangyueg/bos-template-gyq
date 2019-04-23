@@ -9,8 +9,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'antd';
 import PropTypes from 'prop-types';
-import * as Util from '../../../util/index';
-import './index.less';
+// import './index.less';
 
 export default class DetailComponent extends Component {
 	constructor(props) {

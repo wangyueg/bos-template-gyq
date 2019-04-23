@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import * as actions from './index.action';
 import * as Util from '../../../../util';
-import CommonDetail from '../../../components/detail/';
+import {CommonDetail} from 'bos-template-gyq';
 import {data} from './data';
 
 class Detail extends Component{

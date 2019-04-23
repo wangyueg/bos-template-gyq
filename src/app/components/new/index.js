@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Form, Input, Button, Icon, Select, DatePicker, Divider, InputNumber, Checkbox, Switch} from 'antd';
 import Cascader from '../cascader/index';
-import * as Util from '../../../util/';
+import * as Util from '../util/';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import './index.less';
+// import './index.less';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const {TextArea} = Input;

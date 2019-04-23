@@ -3,8 +3,8 @@ import { Table, Form, Button, Pagination } from 'antd';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import Filter from '../filter/index';
-import * as Util from '../../../util/';
-import './index.less';
+import * as Util from '..//util/';
+// import './index.less';
 
 const WrappedAdvancedFilter = Form.create()(Filter);
 

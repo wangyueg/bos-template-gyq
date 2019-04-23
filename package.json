@@ -1,6 +1,6 @@
 {
   "name": "bos-template-gyq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An out-of-box UI solution for enterprise applications as a React boilerplate.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "node ./build/dev-server.js",
     "dev": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prodDev.config.js",
     "prod": "rm -rf ./public/*.css &&  rm -rf ./public/scripts && rm -rf ./public/index.html && webpack --config ./build/webpack.prod.config.js",
-    "build-compontes": "babel ./src/app/components -d components",
+    "build-components": "babel ./src/app/components -d components",
     "css": "gulp less"
   },
   "author": "wangyuegyq",
@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "antd": "^3.5.3",
+    "bos-template-gyq": "^1.0.1",
     "exports-loader": "^0.7.0",
     "js-sha1": "^0.6.0",
     "moment": "^2.22.2",
