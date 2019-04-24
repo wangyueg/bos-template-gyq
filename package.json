@@ -1,6 +1,6 @@
 {
   "name": "bos-template-gyq",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "An out-of-box UI solution for enterprise applications as a React boilerplate.",
   "main": "index.js",
   "scripts": {
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "antd": "^3.5.3",
-    "bos-template-gyq": "^1.0.1",
+    "bos-template-gyq": "^1.0.3",
     "exports-loader": "^0.7.0",
     "js-sha1": "^0.6.0",
     "moment": "^2.22.2",
@@ -65,5 +65,12 @@
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "whatwg-fetch": "^2.0.4"
-  }
+  },
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md",
+    "css",
+    "components"
+  ]
 }
