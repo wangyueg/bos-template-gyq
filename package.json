@@ -1,6 +1,6 @@
 {
   "name": "bos-template-gyq",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An out-of-box UI solution for enterprise applications as a React boilerplate.",
   "main": "index.js",
   "scripts": {
