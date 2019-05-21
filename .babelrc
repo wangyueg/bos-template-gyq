@@ -1,4 +1,7 @@
 {
   "presets": ["env", "react", "stage-2"],
-  "plugins": ["babel-plugin-transform-object-rest-spread"]
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-decorators-legacy"
+  ]
 }

@@ -14,7 +14,10 @@ module.exports = {
 		filename: process.env.CURRENT_ENV === 'development' ? 'scripts/app.js' : 'scripts/[name].[hash].js'
 	},
 	resolve: {
-		extensions: ['.js', '.json']
+		extensions: ['.js', '.json'],
+		alias: {
+			Components: path.resolve(__dirname, '../src/app/components')
+		}
 	},
 	module: {
 		rules: [

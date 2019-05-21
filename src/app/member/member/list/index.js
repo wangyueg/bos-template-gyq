@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Divider } from 'antd';
 import { columns } from './columns';
-import CommonList from '../../../components/list/index';
+import CommonList from 'Components/list/index';
+import 'Components/list/index.less';
+import 'Components/filter/index.less';
 import Toast from '../../../../components/prompt/toast';
 import * as actions from './index.action';
 import * as Util from '../../../../util/';
@@ -129,7 +131,6 @@ class Member extends Component {
 	render() {
 		let tableDataSource = this.props.MemberList && this.props.MemberList.memberListData;
 		let pagination = this.props.MemberList && this.props.MemberList.memberListPage;
-		
 		return (
 			<div className="member">
 				<CommonList
